@@ -6,7 +6,7 @@ mod 'nanliu/staging', '1.0.3'
 mod 'puppetlabs/mysql', '3.6.1'
 mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '1.7.2'
-mod 'puppetlabs/mongodb', '0.11.0'
+mod 'basti1302/wait_for', '0.3.0'
 mod 'opal',
   :git => 'https://github.com/nparley/puppet-opal'
 mod 'r',
@@ -14,4 +14,4 @@ mod 'r',
 mod 'datashield',
   :git => 'https://github.com/nparley/puppet-datashield'
 mod 'mongodb',
-  :git => 'https://github.com/puppetlabs/puppetlabs-mongodb'
+  :git => 'https://github.com/nparley/puppet-mongodb'
