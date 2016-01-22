@@ -1,0 +1,1 @@
+class {::datashield: firewall => false}
