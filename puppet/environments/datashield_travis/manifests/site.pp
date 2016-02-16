@@ -1,6 +1,7 @@
 # Datashield for Travis testing.
 #
 # Install mysql and mongodb, include test data but don't install the firewall.
+# This is an example please change to meet the needs of your install. Consider changing any passwords in this file!
 #
 
 class { ::datashield:

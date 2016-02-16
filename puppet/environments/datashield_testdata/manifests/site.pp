@@ -1,6 +1,7 @@
 # Datashield server with test data.
 #
 # Install mysql and mongodb, include test data and install the firewall. Update opal admin password
+# This is an example please change to meet the needs of your install. Consider changing any passwords in this file!
 #
 
 case $::operatingsystem {
