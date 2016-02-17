@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Installs puppet, git and r10k on a Centos machine.
+
 PUPPET_DIR="/opt/puppetlabs"
 PUPPET_BIN="$PUPPET_DIR/puppet/bin"
 
