@@ -1,23 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# All Vagrant configuration is done below. The "2" in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don't change it unless you know what
-# you're doing.
+# Vagrant configuration file for a Ubuntu VM running a datashield server as provisioned by the datashield_testdata
+# puppet environment. By default the machine is given the private IP 192.168.2.6.
+#
 Vagrant.configure(2) do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
+  # See https://docs.vagrantup.com. for vagrant config info
 
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://atlas.hashicorp.com/search.
+  # Puppetlabs blank ubuntu box
   config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
-
-  # Disable automatic box update checking. If you disable this, then
-  # boxes will only be checked for updates when the user runs
-  # `vagrant box outdated`. This is not recommended.
-  # config.vm.box_check_update = false
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -26,8 +17,8 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
   config.vm.network "private_network", ip: "192.168.2.6"
+
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
@@ -35,44 +26,25 @@ Vagrant.configure(2) do |config|
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  config.vm.synced_folder "/home/neilparley/dsBaseClient", "/home/vagrant/nparley/dsBaseClient"
+  # the path on the guest to mount the folder.
+  # config.vm.synced_folder "../data", "/vagrant_data"
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
+  # Setup VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
     #   # Display the VirtualBox GUI when booting the machine
     #   vb.gui = true
-    #
-    #   # Customize the amount of memory on the VM:
+    # Customize the amount of memory on the VM:
     vb.memory = "2048"
   end
   #
-  # View the documentation for the provider you are using for more
-  # information on available options.
-
-  # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
-  # such as FTP and Heroku are also available. See the documentation at
-  # https://docs.vagrantup.com/v2/push/atlas.html for more information.
-  # config.push.define "atlas" do |push|
-  #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
-  # end
-
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
+  # Provisioning of the VM. Run the setup script. Then run r10k to install puppet modules. Then run the puppet
+  # for the environment you wish to setup.
+  #
   config.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
-  config.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/test && r10k -v info puppetfile install'
+  config.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_testdata && r10k -v info puppetfile install'
   config.vm.provision "puppet" do |puppet|
     puppet.environment_path = "../../puppet/environments"
-    puppet.environment = "test"
-    # puppet.options = "--verbose --debug"
+    puppet.environment = "datashield_testdata"
   end
 end
