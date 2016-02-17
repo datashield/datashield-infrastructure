@@ -11,7 +11,7 @@
 ## Description
 
 Infrastructure set up code, examples and puppet environments for datashield. This repo consists in three parts. Under 
-`vagrant` are vagrant set up files for creating different types of daatshield VMs. Under `scripts` are shell scripts 
+`vagrant` are vagrant set up files for creating different types of datashield VMs. Under `scripts` are shell scripts 
 which install the necessary software (puppet, git, r10K) needed to provision a VM using puppet. Under `puppet` are 
 several puppet environment examples for provisioning different types of machines. 
 
