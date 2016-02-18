@@ -5,7 +5,7 @@
 PUPPET_DIR="/opt/puppetlabs"
 PUPPET_BIN="$PUPPET_DIR/puppet/bin"
 
-DISTRIB_RELEASE=`rpm -qa '*release*' --queryformat '%{VERSION}'`
+DISTRIB_RELEASE=`rpm -qa 'centos*release*' --queryformat '%{VERSION}'`
 
 echo "Running Puppet setup script for Centos"
 echo "Centos Enterprise version: $DISTRIB_RELEASE"
