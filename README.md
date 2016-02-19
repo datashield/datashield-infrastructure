@@ -88,9 +88,11 @@ r10k puppetfile install
 puppet can not be found the full path to the binary is `/opt/puppetlabs/bin/puppet`. Replace r10k and puppet with the
 full absolute paths if needed.) 
 
-The `site.pp` file inside the manifests directory can be editted if the environment requirement is not exactly suited to 
-the example. Documentation on the variables for editing the datashield puppet options can be found by reading the README 
-file associated with the puppet-datashield repo. The puppet environment can then be applied with the commands:
+The `site.pp` file inside the manifests directory can be edited if the environment requirement is not exactly suited to 
+the example. *The file should also be editted to change the passwords for the database servers and opal admin from 
+their default values especially if sensitive data is involved!*. Documentation on the variables for editing the 
+datashield puppet options can be found by reading the README file associated with the puppet-datashield repo. The 
+puppet environment can then be applied with the commands:
 
 ```bash
 cd /datashield-infrastructure/puppet/environments/datashield_testdata/manifests/
