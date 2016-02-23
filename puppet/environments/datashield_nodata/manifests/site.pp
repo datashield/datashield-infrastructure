@@ -18,8 +18,8 @@ class { ::datashield:
   firewall            => true,                   # Install firewall on server and open ports
   mysql               => true,                   # Install mysql server
   mysql_root_password => 'rootpass',             # Root password for MySQL install
-  mysql_user          => 'opaluser',             # MySQL user for Opal table
-  mysql_pass          => 'opalpass',             # MySQL user passport for Opal table
+  mysql_user          => 'opaluser',             # MySQL user for Opal databases
+  mysql_pass          => 'opalpass',             # MySQL user passport for Opal databases
   mongodb             => true,                   # Install mongodb server
   mongodb_user        => 'opaluser',             # Username of root MongoDB user for MongoDB install
   mongodb_pass        => 'opalpass',             # Password of root MongoDB user for MongoDB install
