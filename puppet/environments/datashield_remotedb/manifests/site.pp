@@ -15,18 +15,23 @@ case $::operatingsystem {
 }
 
 class { ::datashield:
-  test_data           => false,                         # No test data
-  firewall            => true,                          # Install firewall on server and open ports
-  mysql               => false,                         # Do not install mysql server
-  mongodb             => false,                         # Do not install mongodb server
-  remote_mongodb      => true,                          # Connect to remote mongodb server (or set to false if no mongodb server)
-  remote_mongodb_url  => 'mongodb.server.domain:27017', # Remote mongodb server url
-  remote_mongodb_user => 'username',                    # Username for remote mongodb server
-  remote_mongodb_pass => 'password',                    # Password for remote mongodb server
-  remote_mysql        => true,                          # Connect to remote mysql server (or set to false if no mysql server)
-  remote_mysql_url    => 'mysql.server.domain:3306',    # Remote mysql server url
-  remote_mysql_user   => 'username',                    # Username for remote mysql server
-  remote_mysql_pass   => 'password',                    # Password for remote mysql server
-  opal_password_hash  => $opal_password_hash,           # Change Opal admin password using this hash
-  opal_password       => 'datashield_test&'             # This is the Opal admin password for Opal management
+  test_data                   => false,                         # No test data
+  firewall                    => true,                          # Install firewall on server and open ports
+  mysql                       => false,                         # Do not install mysql server
+  mongodb                     => false,                         # Do not install mongodb server
+  remote_mongodb              => true,                          # Connect to remote mongodb server (or set to false if no mongodb server)
+  remote_mongodb_url          => 'mongodb.server.domain:27017', # Remote mongodb server url
+  remote_mongodb_user         => 'username',                    # Username for remote mongodb server
+  remote_mongodb_pass         => 'password',                    # Password for remote mongodb server
+  remote_mongodb_opal_data_db => 'opal_data',                   # Name of the database holding Opal data
+  remote_mongodb_opal_ids_db  => 'opal_ids',                    # Name of the database holding Opal IDs
+  remote_mongodb_auth_db      => 'admin',                       # Database for authenticating mongoDB user
+  remote_mysql                => true,                          # Connect to remote mysql server (or set to false if no mysql server)
+  remote_mysql_url            => 'mysql.server.domain:3306',    # Remote mysql server url
+  remote_mysql_user           => 'username',                    # Username for remote mysql server
+  remote_mysql_pass           => 'password',                    # Password for remote mysql server
+  remote_mysql_opal_data_db   => 'opal_data',                   # Name of the database holding Opal data
+  remote_mysql_opal_ids_db    => 'opal_ids',                    # Name of the database holding Opal IDs
+  opal_password_hash          => $opal_password_hash,           # Change Opal admin password using this hash
+  opal_password               => 'datashield_test&'             # This is the Opal admin password for Opal management
 }
