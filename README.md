@@ -146,6 +146,11 @@ By default both an MySQL and MongoDB database server will be installed on the ma
 the firewall will not be installed. The datashield test data and projects will also be installed using this environment
 for running the datashield package tests against.
 
+##### datashield_db_server
+
+This is a puppet environment used to install the database servers, i.e. MySQL and MongoDB but not Opal or datashield. This 
+may be useful if you would like your database servers and hence data on a different machine or VM from Opal and datasheild.
+
 ### Vagrant VM examples
 
 These Vagrantfile examples can be used to create datashield VMs and sets of VMs. The VMs are create with virtual box and
@@ -171,6 +176,11 @@ top of a Centos vagrant box. By default the VM has 2GB of RAM and the private IP
 
 This Vagrantfile will create a datashield server machine using the datashield_testdata puppet environment built on 
 top of a Ubuntu vagrant box. By default the VM has 2GB of RAM and the private IP address of the machine is 192.168.2.6.
+
+##### datashield_db_server_ubuntu
+
+This Vagrantfile will create a datashield db server machine using the datashield_db_server puppet environment built on 
+top of a Ubuntu vagrant box. By default the VM has 1GB of RAM and the private IP address of the machine is 192.168.2.20.
 
 ### Scripts
 
