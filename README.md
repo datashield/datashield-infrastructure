@@ -112,6 +112,14 @@ cd /etc/puppetlabs/code/environments/datashield_testdata/manifests/
 sudo puppet apply site.pp --environment datashield_testdata
 ```
 
+If you are running an older version of puppet (for example puppet 3.x) you will not have environments. Hence replace 
+environmentpath with modulepath in your puppet apply commands. For example:
+
+```bash
+cd /datashield-infrastructure/puppet/environments/datashield_testdata/manifests/
+sudo puppet apply site.pp --modulepath /datashield-infrastructure/puppet/environments/datashield_testdata/modules
+```
+
 ## Reference
 
 ### Puppet environment examples
