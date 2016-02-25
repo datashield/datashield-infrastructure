@@ -6,6 +6,7 @@
 
 class { ::datashield::client:
   rstudio       => true,                # Install rstudio on the machine
+  agate         => true,                # Install Agate
   firewall      => true,                # Install the firewall on the machine
   create_user   => true,                # Create a default user account with rstudio install
   user_name     => 'datashield',        # Name of user to create
