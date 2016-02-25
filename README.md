@@ -134,9 +134,10 @@ sudo puppet apply site.pp --modulepath /datashield-infrastructure/puppet/environ
 ### Puppet environment examples
 
 The puppet enviroments are under the directory `puppet/environments` in this repo. In each environment directory there 
-is a `Puppetfile` which is used to install the needed puppet modules, and a `manifests/site.pp` file which provisions 
-the machine. The `.gitirgnore` file is used so that the modules directory installed by r10k is not included in this git 
-repo. The four puppet modules written for the environments can be found in their own git repos with the prefix *puppet-*.
+is a `Puppetfile` which contains a list of the required puppet modules for each environment and is used to install the 
+needed modules, and a `manifests/site.pp` file which provisions the machine. The `.gitirgnore` file is used so that the 
+modules directory installed by r10k is not included in this git repo. The four puppet modules written for the environments 
+can be found in their own git repos with the prefix *puppet-*.
 
 ##### datashield_client
 
