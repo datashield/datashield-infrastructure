@@ -24,6 +24,14 @@ system. Go to https://www.vagrantup.com/downloads.html and download and install 
 operating system. If you are creating local VMs you will also need to install VirtualBox as this is what is being used 
 to create the virtual machines, see https://www.virtualbox.org/wiki/Downloads for the correct VirtualBox download. 
 
+If you are using local VMs with VirtualBox a useful Vagrant plugin to install is `vagrant-cachier`. This plugin caches 
+the downloaded packages etc. for faster provisioning. To install the plugin, once vagrant has been installed use the 
+command:
+
+```bash
+vagrant plugin install vagrant-cachier
+```
+
 After you have install Vagrant and VirtualBox getting a VM with datashield up and running is as easily as two commands, 
 for example to create a datashield server with test data using a Ubuntu system (assuming you are in the root directory 
 of this repo) you would run:
