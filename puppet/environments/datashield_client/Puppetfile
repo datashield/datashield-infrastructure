@@ -8,6 +8,8 @@ mod 'puppetlabs/firewall', '1.7.2'
 mod 'basti1302/wait_for', '0.3.0'
 mod 'cpick/gdebi', '0.1.1'
 mod 'maestrodev/wget', '1.7.1'
+mod 'opal',
+  :git => 'https://github.com/nparley/puppet-opal'
 mod 'r',
   :git => 'https://github.com/nparley/puppet-r'
 mod 'datashield',
