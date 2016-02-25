@@ -14,3 +14,5 @@ mod 'r',
   :git => 'https://github.com/nparley/puppet-r'
 mod 'datashield',
   :git => 'https://github.com/nparley/puppet-datashield'
+mod 'mongodb',
+  :git => 'https://github.com/nparley/puppet-mongodb'

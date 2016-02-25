@@ -142,7 +142,8 @@ can be found in their own git repos with the prefix *puppet-*.
 ##### datashield_client
 
 This puppet environment will provision the datashield client software, i.e. the client R packages and rstudio on a 
-Ubuntu or Centos machine. 
+Ubuntu or Centos machine. This environment will also install Agate for user management and a MongoDB database which is 
+required to hold Agate data.
 
 ##### datashield_nodata
 
