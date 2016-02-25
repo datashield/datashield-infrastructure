@@ -42,7 +42,8 @@ vagrant up
 
 to ssh into a VM that you have created you can use the `vagrant ssh` command from the directory of the Vagrantfile. 
 Once you are finished with a machine you can remove it by issuing the `vagrant destroy` command, also from the same 
-directory.
+directory. If your vagrant setup has two machines, i.e. a client and server or database server and a datashield server 
+you can ssh into the machines using `vagrant ssh machine_name` e.g. `vagrant ssh db_server`.
 
 ### Use puppet to provision your own VM or physical server
 
@@ -159,6 +160,13 @@ for running the datashield package tests against.
 This is a puppet environment used to install the database servers, i.e. MySQL and MongoDB but not Opal or datashield. This 
 may be useful if you would like your database servers and hence data on a different machine or VM from Opal and datasheild.
 
+##### datashield_remotedb
+
+This is a puppet environment to show how a datashield install could be setup to connect to a remote database server, that 
+is a database server provisioned with `datashield_db_server` or a database server setup in another way. This environment 
+therefore does not install MySQL or MongoDB on this machine but installs Opal and datashield, along with the filewall and
+registers the remote database servers with the Opal install.
+
 ### Vagrant VM examples
 
 These Vagrantfile examples can be used to create datashield VMs and sets of VMs. The VMs are create with virtual box and
@@ -189,6 +197,12 @@ top of a Ubuntu vagrant box. By default the VM has 2GB of RAM and the private IP
 
 This Vagrantfile will create a datashield db server machine using the datashield_db_server puppet environment built on 
 top of a Ubuntu vagrant box. By default the VM has 1GB of RAM and the private IP address of the machine is 192.168.2.20.
+
+##### datashield_remote_db_centos
+
+This Vagrant configuration file is for a configuring two Centos VMs. The first VM is a database server with the IP address
+192.168.2.21 provisioned using the datashield_db_server environment. The second is a datashield server with the IP
+address 192.168.2.22 provisioned with the datashield_remotedb environment.
 
 ### Scripts
 
