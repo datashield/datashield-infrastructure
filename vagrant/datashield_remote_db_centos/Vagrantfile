@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrant configuration file for a configuring two Centos VMs. The first VM is a datashield server with the IP address
+# 192.168.2.21 provisioned using the datashield_db_server environment. The second is a datashield server with the IP
+# address 192.168.2.22 provisioned with the datashield_remotedb environment.
+#
+Vagrant.configure(2) do |config|
+  # See https://docs.vagrantup.com. for vagrant config info
+
+  # Puppetlabs blank centos box
+  config.vm.box = "puppetlabs/centos-7.0-64-nocm"
+
+  # Define a database server
+  config.vm.define "db_server" do |db|
+    db.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+    db.vm.network "private_network", ip: "192.168.2.21"
+    db.vm.provision :shell, :path => '../../scripts/centos/setup.sh'
+    db.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_db_server && r10k -v info puppetfile install'
+    db.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_db_server"
+    end
+  end
+
+  # Define a datashield server
+  config.vm.define "datashield" do |datashield|
+    datashield.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
+    datashield.vm.network "private_network", ip: "192.168.2.22"
+    datashield.vm.provision :shell, :path => '../../scripts/centos/setup.sh'
+    datashield.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_remotedb && r10k -v info puppetfile install'
+    datashield.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_remotedb"
+    end
+  end
+end
