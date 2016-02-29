@@ -294,6 +294,15 @@ This Vagrant configuration file is for a configuring two Centos VMs. The first V
 192.168.2.21 provisioned using the datashield_db_server environment. The second is a datashield server with the IP
 address 192.168.2.22 provisioned with the datashield_remotedb environment.
 
+##### datashield_3servers_1client
+
+This Vagrant configures three Ubuntu datashield servers provisioned with datashield_testdata puppet environment with the
+IP addresses 192.168.2.32, 192.168.2.33 and 192.168.2.34. Also created is a datashield client provisioned with the 
+datashield_client puppet environment.
+
+##### datashield_3servers_1client_google
+
+This Vagrantfile creates 3 datashield servers and 1 datashield client on Google Cloud Compute Engine.
 
 
 ### Scripts
