@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
         zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
         zone1f.zone = "europe-west1-d" # Keep this the same as zone
         zone1f.disk_size = 10 # Size of the disk (GB)
-        zone1f.network = "default" # Which network for the VM to use
+        zone1f.network = "client-external" # Which network for the VM to use
       end
     end
     client.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
         zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
         zone1f.zone = "europe-west1-d" # Keep this the same as zone
         zone1f.disk_size = 10 # Size of the disk (GB)
-        zone1f.network = "default" # Which network for the VM to use
+        zone1f.network = "server-internal" # Which network for the VM to use
       end
     end
     datashield1.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
@@ -68,7 +68,7 @@ Vagrant.configure(2) do |config|
         zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
         zone1f.zone = "europe-west1-d" # Keep this the same as zone
         zone1f.disk_size = 10 # Size of the disk (GB)
-        zone1f.network = "default" # Which network for the VM to use
+        zone1f.network = "server-internal" # Which network for the VM to use
       end
     end
     datashield2.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
@@ -90,7 +90,7 @@ Vagrant.configure(2) do |config|
         zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
         zone1f.zone = "europe-west1-d" # Keep this the same as zone
         zone1f.disk_size = 10 # Size of the disk (GB)
-        zone1f.network = "default" # Which network for the VM to use
+        zone1f.network = "server-internal" # Which network for the VM to use
       end
     end
     datashield3.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
