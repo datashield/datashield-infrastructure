@@ -1,0 +1,29 @@
+# This file sets up some defaults for Vagrant
+# Move this file to ${HOME}/.vagrant.d/Vagrantfile and fill in the computer cloud information.
+
+# Configures vagrant-cachier and vagrant-proxyconf.
+# Should be called only on "local machine" providers.
+def configure_caching(config)
+  if Vagrant.has_plugin?('vagrant-cachier')
+    config.cache.scope = :box
+  end
+end
+
+
+# Overrides for Google account information.
+#
+
+Vagrant.configure('2') do |config|
+
+  config.vm.provider :google do |google, override|
+
+    google.google_project_id = "YOUR_GOOGLE_CLOUD_PROJECT_ID"
+    google.google_client_email = "YOUR_SERVICE_ACCOUNT_EMAIL_ADDRESS"
+    google.google_json_key_location = "/path/to/your/private-key.json"
+
+    override.ssh.username = "USERNAME"
+    override.ssh.private_key_path = "#{ENV['HOME']}/.ssh/id_rsa"
+
+  end
+
+end
