@@ -1,0 +1,70 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrant configuration file for configuring 3 Ubuntu datashield servers provisioned with datashield_testdata with the
+# IP address 192.168.2.32, 192.168.2.33 and 192.168.2.34. Also a datashield client provisioned with the datashield_client
+# puppet environment.
+#
+Vagrant.configure(2) do |config|
+  # See https://docs.vagrantup.com. for vagrant config info
+
+  # Puppetlabs blank centos box
+  config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
+
+  # Use cache if the plugin vagrant-cachier has been installed
+  if Vagrant.has_plugin?("vagrant-cachier")
+    config.cache.scope = :box
+  end
+
+  # Define a datashield client
+  config.vm.define "client" do |client|
+    client.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+    client.vm.network "private_network", ip: "192.168.2.31"
+    client.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
+    client.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_client && r10k -v info puppetfile install'
+    client.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_client"
+    end
+  end
+
+  # Define a datashield server
+  config.vm.define "datashield1" do |datashield1|
+    datashield1.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
+    datashield1.vm.network "private_network", ip: "192.168.2.32"
+    datashield1.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
+    datashield1.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_testdata && r10k -v info puppetfile install'
+    datashield1.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_testdata"
+    end
+  end
+  config.vm.define "datashield2" do |datashield2|
+    datashield2.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
+    datashield2.vm.network "private_network", ip: "192.168.2.33"
+    datashield2.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
+    datashield2.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_testdata && r10k -v info puppetfile install'
+    datashield2.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_testdata"
+    end
+  end
+  config.vm.define "datashield3" do |datashield3|
+    datashield3.vm.provider "virtualbox" do |vb|
+      vb.memory = "2048"
+    end
+    datashield3.vm.network "private_network", ip: "192.168.2.34"
+    datashield3.vm.provision :shell, :path => '../../scripts/ubuntu/setup.sh'
+    datashield3.vm.provision :shell, :inline => 'cd /tmp/vagrant-puppet/environments/datashield_testdata && r10k -v info puppetfile install'
+    datashield3.vm.provision "puppet" do |puppet|
+      puppet.environment_path = "../../puppet/environments"
+      puppet.environment = "datashield_testdata"
+    end
+  end
+end
