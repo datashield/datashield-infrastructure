@@ -79,7 +79,7 @@ Vagrant.configure(2) do |config|
     end
   end
 
-  config.vm.define "datashield2" do |datashield3|
+  config.vm.define "datashield3" do |datashield3|
     datashield3.vm.provider :google do |google|
       # Make sure to set this to trigger the zone_config
       google.zone = "europe-west1-d" # Zone where the computer is going to be (keep all computers in the same zoon)
