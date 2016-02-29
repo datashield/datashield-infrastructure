@@ -15,6 +15,10 @@ end
 
 Vagrant.configure('2') do |config|
 
+  config.vm.provider :virtualbox do |vbox, override|
+    configure_caching(override)
+  end
+
   config.vm.provider :google do |google, override|
 
     google.google_project_id = "YOUR_GOOGLE_CLOUD_PROJECT_ID"
