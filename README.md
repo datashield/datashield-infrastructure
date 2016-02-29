@@ -51,7 +51,67 @@ vagrant up
 to ssh into a VM that you have created you can use the `vagrant ssh` command from the directory of the Vagrantfile. 
 Once you are finished with a machine you can remove it by issuing the `vagrant destroy` command, also from the same 
 directory. If your vagrant setup has two machines, i.e. a client and server or database server and a datashield server 
-you can ssh into the machines using `vagrant ssh machine_name` e.g. `vagrant ssh db_server`.
+you can ssh into the machines using `vagrant ssh machine_name` e.g. `vagrant ssh db_server`. 
+
+#### Create VMs on Google Compute Engine
+
+Datashield VMs can also be created on the Google Compute Engine using Vagrant. Once the machines have been created you 
+might decide to save a snapshot of the machine so it can be provisioned quickly in the future. To create VMs on Google
+Compute Engine you must have an account setup, a 2 month trial account is available. To use Vagrant with Google Compute 
+Engine you also need to install a Vagrant plugin:
+
+```bash
+vagrant plugin install vagrant-google
+```
+
+To enable provisioning of cloud VMs on Google Compute Engine first move the file `vagrant/.vagrant.d/Vagrantfile` to 
+your Vagrant home directory, normally `${HOME}/.vagrant.d`. Then open the file to edit. There are a few configuration 
+sections that need to be filled in, for example `google_project_id` etc. To get the information for the file follow the
+instructions below for each section:
+
+* **_google_project_id_**: This is the ID of your Google Compute Engine project. Login to the Google Cloud console at 
+https://console.cloud.google.com/home/ making sure that the correct project is selected from the top right (or create 
+a new project). The project ID is then given on the dashboard home screen under the project name with the label project 
+id.
+
+* **_google_client_email_** and **_google_json_key_location_**: Log in to the permissions section of the Google Cloud console at 
+https://console.cloud.google.com/permissions. Click on service accounts and then create new service account. Select a 
+name for the account and make sure you click *Furnish a new private key* and leave select JSON for file type. Click on 
+create and a file will be downloaded. Your *google_client_email* is then the email address for the service account, i.e. 
+the address ending `@ ... gserviceaccount.com`. Move the JSON file that was downloaded somewhere sensible on your computer 
+then add the client email and the location of the download JSON file to your Vagrantfile. 
+
+* **_ssh.username_** and **_ssh.private_key_path_**: To SSH into the machines once you have provisioned them you need to
+copy your ssh key to the meta data section on the Google Compute Cloud. You may already have an ssh key in your `.ssh` 
+folder. I.e. `ls $HOME/.ssh/id_rsa`. If one already exists you should not need to create another key. If you don't have 
+a key, create one using the command, `ssh-keygen -t rsa -b 4096`. You then need to copy your key to the clip board. Using 
+a Mac this can be done with the command `pbcopy < ~/.ssh/id_rsa.pub` or on Linux this can be done with the xclip command, 
+i.e. `xclip -sel clip < ~/.ssh/id_rsa.pub`. To add the key go to the Metadata section of the Compute engine section of 
+the Google Cloud Console. I.e. https://console.cloud.google.com/compute/metadata. Once there click on the ssh keys tab. 
+Click on edit and copy the whole key into a new entry in the space provided, then click save. Your username will appear
+next to the key that you have entered, this is the username to add to the *ssh.username* section. If you have saved your
+key in the default location you will not have to edit the *ssh.private_key_path*. 
+
+After the file above is setup correctly you can go to the directories *_google* and type `vagrant up` to start a VM as
+you would to create a local VM.
+
+Note about networks: 
+
+By default Google Compute Engine blocks all external ports to a VM and so you will not be able to 
+access Opal or rstudio. You will need to open the correct ports on the *default* network to get these services to work 
+from the outside world. A better way though might be to setup different networks which you can then apply in different 
+situations. For Example:
+
+* **server-internal**: This network should have no additional firewall rules other than the default setup by Google. This
+would allow access to the server from the Google Compute Network but not from the outside world. E.g. when using a client
+machine as an access point.
+
+* **server-external**: For when the server needs external access. You will need to add a firewall rule to open the ports
+required by Opal, i.e. tcp:8080 and / or tcp:8443. 
+
+* **client-external**: For when you are accessing a client machine from the outside world. This would need firewall ports
+opening for Agate (tcp:8081 and / or tcp:8444) and RStudio (tcp:8787) if they were being installed on the client machine.
+
 
 ### Use puppet to provision your own VM or physical server
 
@@ -188,20 +248,36 @@ are create is not included in this repo.
 This Vagrantfile will create a datashield client machine using the datashield_client puppet environment built on top
 of a Centos vagrant box. By default the VM has 1GB of RAM and the private IP address of the machine is 192.168.2.10.
 
+##### datashield_client_centos_google
+
+This Vagrantfile will create a datashield client machine on Centos but on the Google Cloud Compute Engine.
+
 ##### datashield_client_ubuntu
 
 This Vagrantfile will create a datashield client machine using the datashield_client puppet environment built on top
 of a Ubuntu vagrant box. By default the VM has 1GB of RAM and the private IP address of the machine is 192.168.2.11.
+
+##### datashield_client_ubuntu_google
+
+This Vagrantfile will create a datashield client machine on Ubuntu but on the Google Cloud Compute Engine.
 
 ##### datashield_testdata_centos
 
 This Vagrantfile will create a datashield server machine using the datashield_testdata puppet environment built on 
 top of a Centos vagrant box. By default the VM has 2GB of RAM and the private IP address of the machine is 192.168.2.5.
 
+##### datashield_testdata_ubuntu_centos
+
+This Vagrantfile will create a datashield server machine on Centos but on the Google Cloud Compute Engine.
+
 ##### datashield_testdata_ubuntu
 
 This Vagrantfile will create a datashield server machine using the datashield_testdata puppet environment built on 
 top of a Ubuntu vagrant box. By default the VM has 2GB of RAM and the private IP address of the machine is 192.168.2.6.
+
+##### datashield_testdata_ubuntu_google
+
+This Vagrantfile will create a datashield server machine on Ubuntu but on the Google Cloud Compute Engine.
 
 ##### datashield_db_server_ubuntu
 
@@ -213,6 +289,8 @@ top of a Ubuntu vagrant box. By default the VM has 1GB of RAM and the private IP
 This Vagrant configuration file is for a configuring two Centos VMs. The first VM is a database server with the IP address
 192.168.2.21 provisioned using the datashield_db_server environment. The second is a datashield server with the IP
 address 192.168.2.22 provisioned with the datashield_remotedb environment.
+
+
 
 ### Scripts
 
