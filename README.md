@@ -270,7 +270,7 @@ This Vagrantfile will create a datashield client machine on Ubuntu but on the Go
 This Vagrantfile will create a datashield server machine using the datashield_testdata puppet environment built on 
 top of a Centos vagrant box. By default the VM has 2GB of RAM and the private IP address of the machine is 192.168.2.5.
 
-##### datashield_testdata_ubuntu_centos
+##### datashield_testdata_centos_google
 
 This Vagrantfile will create a datashield server machine on Centos but on the Google Cloud Compute Engine.
 
