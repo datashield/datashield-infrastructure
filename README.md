@@ -141,7 +141,7 @@ of the correct script by running the following commands (where [OS] is replaced 
 centos or ubuntu):
 
 ```bash
-curl -OL http://raw.githubusercontent.com/nparley/datashield-infrastructure/master/scripts/[OS]/setup.sh
+curl -OL http://raw.githubusercontent.com/datashield/datashield-infrastructure/master/scripts/[OS]/setup.sh
 chmod +x setup.sh
 ```
 
@@ -155,7 +155,7 @@ Once this command has been run you can checkout this repo to get a copy of the p
 
 ```bash
 
-git clone https://github.com/nparley/datashield-infrastructure.git
+git clone https://github.com/datashield/datashield-infrastructure.git
 ```
 
 then for the environment you would like to use move to that directory (for this example we assume a 

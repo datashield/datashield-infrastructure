@@ -9,10 +9,10 @@ mod 'basti1302/wait_for', '0.3.0'
 mod 'cpick/gdebi', '0.1.1'
 mod 'maestrodev/wget', '1.7.1'
 mod 'opal',
-  :git => 'https://github.com/nparley/puppet-opal'
+  :git => 'https://github.com/datashield/puppet-opal'
 mod 'r',
-  :git => 'https://github.com/nparley/puppet-r'
+  :git => 'https://github.com/datashield/puppet-r'
 mod 'datashield',
-  :git => 'https://github.com/nparley/puppet-datashield'
+  :git => 'https://github.com/datashield/puppet-datashield'
 mod 'mongodb',
-  :git => 'https://github.com/nparley/puppet-mongodb'
+  :git => 'https://github.com/datashield/puppet-mongodb'

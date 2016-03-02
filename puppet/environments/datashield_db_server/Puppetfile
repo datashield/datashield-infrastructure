@@ -7,6 +7,6 @@ mod 'puppetlabs/mysql', '3.6.1'
 mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '1.7.2'
 mod 'datashield',
-  :git => 'https://github.com/nparley/puppet-datashield'
+  :git => 'https://github.com/datashield/puppet-datashield'
 mod 'mongodb',
-  :git => 'https://github.com/nparley/puppet-mongodb'
+  :git => 'https://github.com/datashield/puppet-mongodb'
