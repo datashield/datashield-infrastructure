@@ -53,6 +53,15 @@ Once you are finished with a machine you can remove it by issuing the `vagrant d
 directory. If your vagrant setup has two machines, i.e. a client and server or database server and a datashield server 
 you can ssh into the machines using `vagrant ssh machine_name` e.g. `vagrant ssh db_server`. 
 
+Note: Sometimes windows have problems with the Vagrant networks. This seems to be a Virtual box bug, one possible way 
+around the problem is to change the network IP address from 192.168.2.x to 192.168.56.x. by change the line if the 
+Vagrantfile like the example below:
+
+```ruby
+- config.vm.network "private_network", ip: "192.168.2.6"
++ config.vm.network "private_network", ip: "192.168.56.6"
+```
+
 #### Create VMs on Google Compute Engine
 
 Datashield VMs can also be created on the Google Compute Engine using Vagrant. Once the machines have been created you 
@@ -97,6 +106,7 @@ After the file above is setup correctly you can go to the directories *_google* 
 ```bash
 vagrant up --provider=google
 ```
+
 to start a VM as you would to create a local VM.
 
 Note about networks: 
