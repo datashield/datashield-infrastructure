@@ -126,6 +126,7 @@ required by Opal, i.e. tcp:8080 and / or tcp:8443.
 * **client-external**: For when you are accessing a client machine from the outside world. This would need firewall ports
 opening for Agate (tcp:8081 and / or tcp:8444) and RStudio (tcp:8787) if they were being installed on the client machine.
 
+To check that the VMs have been provisioned correctly go to the *compute engine* in Google cloud console. 
 
 ### Use puppet to provision your own VM or physical server
 
