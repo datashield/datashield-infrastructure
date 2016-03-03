@@ -101,7 +101,7 @@ Click on edit and copy the whole key into a new entry in the space provided, the
 next to the key that you have entered, this is the username to add to the *ssh.username* section. If you have saved your
 key in the default location you will not have to edit the *ssh.private_key_path*. 
 
-After the file above is setup correctly you can go to the directories *_google* and type:
+After the file above is setup correctly you can go to any vagrant directory of this cloned repo ending with *_google* and type:
  
 ```bash
 vagrant up --provider=google
