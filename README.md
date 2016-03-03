@@ -113,7 +113,7 @@ Note about networks:
 
 By default Google Compute Engine blocks all external ports to a VM and so you will not be able to 
 access Opal or rstudio. You will need to open the correct ports on the *default* network to get these services to work 
-from the outside world. A better way though might be to setup different networks which you can then apply in different 
+from the outside world. A better way though might be to setup different networks (under the networking tab in Google cloud console) which you can then apply in different 
 situations. For Example:
 
 * **server-internal**: This network should have no additional firewall rules other than the default setup by Google. This
