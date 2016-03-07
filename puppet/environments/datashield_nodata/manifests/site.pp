@@ -26,5 +26,6 @@ class { ::datashield:
   remote_mongodb      => false,                  # No remote mongodb servers
   remote_mysql        => false,                  # No remote mysql servers
   opal_password_hash  => $opal_password_hash,    # Change Opal admin password using this hash
-  opal_password       => 'datashield_test&'      # This is the Opal admin password for Opal management
+  opal_password       => 'datashield_test&',     # This is the Opal admin password for Opal management
+  opal_release        => 'stable'                # The release version of Opal to install.
 }
