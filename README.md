@@ -235,7 +235,7 @@ datashield test data and projects will also be installed using this environment.
 ##### datashield_testdata_development
 
 As above but will install the development version of Opal and the development branch of the server side R packages. 
-* Note: You will need to edit this environment once you know what the development branch names are going to be *
+_Note: You will need to edit this environment once you know what the development branch names are going to be_
 
 ##### datashield_travis
 
