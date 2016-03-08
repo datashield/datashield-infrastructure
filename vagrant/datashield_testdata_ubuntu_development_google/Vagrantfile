@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
     google.zone = "europe-west1-d" # Zone where the computer is going to be (keep all computers in the same zoon)
 
     google.zone_config "europe-west1-d" do |zone1f|
-      zone1f.name = "datashield-testdata-ubuntu" # Name of the VM to spin up
+      zone1f.name = "datashield-testdata-ubuntu-devel" # Name of the VM to spin up
       zone1f.image = "ubuntu-1404-trusty-v20160222" # Image of the VM to spin up
       zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
       zone1f.zone = "europe-west1-d" # Keep this the same as zone
