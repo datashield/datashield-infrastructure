@@ -232,6 +232,11 @@ This puppet environment will provision the datashield server software on a Ubunt
 MySQL and MongoDB database server will be installed on the machine and the machine will have a firewall activated. The
 datashield test data and projects will also be installed using this environment.
 
+##### datashield_testdata_development
+
+As above but will install the development version of Opal and the development branch of the server side R packages. 
+* Note: You will need to edit this environment once you know what the development branch names are going to be *
+
 ##### datashield_travis
 
 This is the puppet environment used for testing datashield modules using travis continuous integration. This puppet 
@@ -290,9 +295,17 @@ This Vagrantfile will create a datashield server machine on Centos but on the Go
 This Vagrantfile will create a datashield server machine using the datashield_testdata puppet environment built on 
 top of a Ubuntu vagrant box. By default the VM has 2GB of RAM and the private IP address of the machine is 192.168.2.6.
 
+##### datashield_testdata_ubuntu_development
+
+As above but installing the development version of Opal and server side packages.
+
 ##### datashield_testdata_ubuntu_google
 
 This Vagrantfile will create a datashield server machine on Ubuntu but on the Google Cloud Compute Engine.
+
+##### datashield_testdata_ubuntu_development_google
+
+As above but installing the development version of Opal and server side packages
 
 ##### datashield_db_server_ubuntu
 
