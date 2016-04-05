@@ -27,6 +27,9 @@ class { ::datashield:
   remote_mysql         => false,                  # No remote mysql servers
   opal_password_hash   => $opal_password_hash,    # Change Opal admin password using this hash
   opal_password        => 'datashield_test&',     # This is the Opal admin password for Opal management
-  opal_release         => 'unstable',             # The release version of Opal to install. <------ Change this line when you know the unstable name
+  opal_release         => 'dsunstable',           # The release version of Opal to install*
   r_server_package_ref => 'master'                # Reference (branch) to use for server side R packages <-------- Change this line when you know the developement branch name for r packages
 }
+
+# * NOTE: 'dsunstable' is the name of the development version of Opal with
+#   DataSHIELD specific patches applied. see: https://pkg.obiba.org/dsunstable/
