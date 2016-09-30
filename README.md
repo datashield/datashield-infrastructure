@@ -19,7 +19,7 @@ several puppet environment examples for provisioning different types of machines
 
 ### Create datashield VMs with Vagrant
 
-To create Virtual machines (VMs) using the Vagrantfiles in this repo you first need to have Vagrant installed on your 
+To create Virtual Machines (VMs) using the Vagrantfiles in this repo you first need to have Vagrant installed on your 
 system. Go to https://www.vagrantup.com/downloads.html and download and install the correct version of vagrant for your
 operating system. If you are creating local VMs you will also need to install VirtualBox as this is what is being used 
 to create the virtual machines, see https://www.virtualbox.org/wiki/Downloads for the correct VirtualBox download. 
@@ -54,7 +54,7 @@ directory. If your vagrant setup has two machines, i.e. a client and server or d
 you can ssh into the machines using `vagrant ssh machine_name` e.g. `vagrant ssh db_server`. 
 
 Note: Sometimes windows have problems with the Vagrant networks. This seems to be a Virtual box bug, one possible way 
-around the problem is to change the network IP address from 192.168.2.x to 192.168.56.x. by change the line if the 
+around the problem is to change the network IP address from 192.168.2.x to 192.168.56.x. by change the line in the 
 Vagrantfile like the example below:
 
 ```ruby
@@ -130,7 +130,7 @@ To check that the VMs have been provisioned correctly go to the *compute engine*
 
 ### Use puppet to provision your own VM or physical server
 
-You can use the puppet environments in this repo to provision machines, both physical and virutal, that have already 
+You can use the puppet environments in this repo to provision machines, both physical and virtual, that have already 
 been created (assuming these machines are using Ubuntu or Centos operating systems). If your computer infrastructure 
 is already using puppet enterprise it is possible you already have a puppet master. If this is the same then the 
 puppet environments and modules can be installed on the puppet master and that can be used to install datashield 
