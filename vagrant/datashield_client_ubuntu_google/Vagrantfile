@@ -10,9 +10,6 @@
 # export GOOGLE_PROJECT_ID="your-google-cloud-project-id"
 # export GOOGLE_JSON_KEY_LOCATION="/full/path/to/your/private-key.json"
 #
-# export GOOGLE_SSH_USER="testuser"
-# export GOOGLE_SSH_KEY_LOCATION="/home/testuser/.ssh/id_rsa"
-#
 
 Vagrant.configure(2) do |config|
   # See https://docs.vagrantup.com. for vagrant config info
@@ -22,7 +19,11 @@ Vagrant.configure(2) do |config|
 
   # Setup Google:
   #
-  config.vm.provider :google do |google|
+  config.vm.provider :google do |google, override|
+    # Set as required
+    override.ssh.username         = "testuser"
+    override.ssh.private_key_path = "/home/testuser/.ssh/id_rsa"
+
     # Make sure to set this to trigger the zone_config
     google.zone = "europe-west1-d" # Zone where the computer is going to be (keep all computers in the same zoon)
 
