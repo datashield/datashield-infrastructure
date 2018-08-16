@@ -4,6 +4,15 @@
 # Vagrant configuration file for a Ubuntu VM running a datashield client as provisioned by the datashield_client
 # puppet environment, the VM will be run on the Google computer cloud.
 #
+# You can specify the Google Cloud Engine setting by setting these authentication shell variables:
+#
+# export GOOGLE_CLIENT_EMAIL="your-google_service_account_email@developer.gserviceaccount.com"
+# export GOOGLE_PROJECT_ID="your-google-cloud-project-id"
+# export GOOGLE_JSON_KEY_LOCATION="/full/path/to/your/private-key.json"
+#
+# export GOOGLE_SSH_USER="testuser"
+# export GOOGLE_SSH_KEY_LOCATION="/home/testuser/.ssh/id_rsa"
+#
 
 Vagrant.configure(2) do |config|
   # See https://docs.vagrantup.com. for vagrant config info
@@ -19,11 +28,14 @@ Vagrant.configure(2) do |config|
 
     google.zone_config "europe-west1-d" do |zone1f|
       zone1f.name = "datashield-client-ubuntu" # Name of the VM to spin up
-      zone1f.image = "ubuntu-1404-trusty-v20160222" # Image of the VM to spin up
+      zone1f.image = "ubuntu-1604-xenial-v20180814" # Image of the VM to spin up
       zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
       zone1f.zone = "europe-west1-d" # Keep this the same as zone
       zone1f.disk_size = 10 # Size of the disk (GB)
-      zone1f.network = "Update network settings for client" # Which network for the VM to use
+      zone1f.network = "client-external" # Which network for the VM to use
+      zone1f.subnetwork = "client-external" # Which network for the VM to use
+#      zone1f.network = "Update network settings for client" # Which network for the VM to use
+#      zone1f.subnetwork = "Update subnetwork settings for client" # Which network for the VM to use
     end
   end
 
