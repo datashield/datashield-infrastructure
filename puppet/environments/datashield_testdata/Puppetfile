@@ -8,14 +8,14 @@ mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '1.12.0'
 mod 'basti1302/wait_for', '0.3.0'
 mod 'opal',
-  :git => 'https://github.com/datashield/puppet-opal',
+  :git => 'https://github.com/StuartWheater/puppet-opal',
   :branch => 'ubuntu16'
 mod 'r',
-  :git => 'https://github.com/datashield/puppet-r',
+  :git => 'https://github.com/StuartWheater/puppet-r',
   :branch => 'ubuntu16'
 mod 'datashield',
-  :git => 'https://github.com/datashield/puppet-datashield',
+  :git => 'https://github.com/StuartWheater/puppet-datashield',
   :branch => 'ubuntu16'
 mod 'mongodb',
-  :git => 'https://github.com/datashield/puppet-mongodb',
+  :git => 'https://github.com/StuartWheater/puppet-mongodb',
   :branch => 'ubuntu16'
