@@ -24,5 +24,5 @@ echo "Checking / Installing r10k"
 ${PUPPET_BIN}/gem query --name r10k --installed &> /dev/null || sudo ${PUPPET_BIN}/gem install r10k
 
 if [ ! -e "$PUPPET_DIR/bin/r10k" ]; then
-    ln -s ${PUPPET_BIN}/r10k ${PUPPET_DIR}/bin/r10k
+    sudo ln -s ${PUPPET_BIN}/r10k ${PUPPET_DIR}/bin/r10k
 fi
