@@ -7,7 +7,7 @@ mod 'stahnma/epel', '1.3.0'
 mod 'puppetlabs/mysql', '5.4.0'
 mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '1.14.0'
-mod 'basti1302/wait_for', '0.3.0'
+mod 'heini-wait_for', '2.0.1'
 
 mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
