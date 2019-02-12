@@ -21,7 +21,7 @@ several puppet environment examples for provisioning different types of machines
 
 To create Virtual Machines (VMs) using the Vagrantfiles in this repo you first need to have Vagrant installed on your 
 system. Go to https://www.vagrantup.com/downloads.html and download and install the correct version of vagrant for your
-operating system. If you are creating local VMs you will also need to install VirtualBox as this is what is being used 
+operating system (the version in the default repos for your system is probably old and broken, so get it from the vagrant website). If you are creating local VMs you will also need to install VirtualBox as this is what is being used 
 to create the virtual machines, see https://www.virtualbox.org/wiki/Downloads for the correct VirtualBox download. 
 
 If you are using local VMs with VirtualBox a useful Vagrant plugin to install is `vagrant-cachier`. This plugin caches 
