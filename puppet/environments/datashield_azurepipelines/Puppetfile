@@ -13,7 +13,7 @@ mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
   :branch => 'ubuntu16'
 mod 'r',
-  :git => 'https://github.com/datashield/puppet-r',
+  :git => 'https://github.com/StuartWheater/puppet-r',
   :branch => 'ubuntu16'
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield',
