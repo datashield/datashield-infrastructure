@@ -25,6 +25,8 @@ sudo apt-get install git -y
 # Install r10k
 echo "Checking / Installing r10k"
 ${PUPPET_BIN}/gem query --name r10k --installed &> /dev/null || sudo ${PUPPET_BIN}/gem install r10k
+${PUPPET_BIN}/gem uninstall cri -I --version 2.15.7
+${PUPPET_BIN}/gem install cri --version 2.15.6
 
 if [ ! -e "$PUPPET_DIR/bin/r10k" ]; then
     sudo ln -s ${PUPPET_BIN}/r10k ${PUPPET_DIR}/bin/r10k
