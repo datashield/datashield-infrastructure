@@ -9,8 +9,8 @@ mod 'puppetlabs/firewall', '1.12.0'
 mod 'heini-wait_for', '2.0.1'
 
 mod 'opal',
-  :git => 'https://github.com/StuartWheater/puppet-opal',
-  :branch => 'testing'
+  :git => 'https://github.com/datashield/puppet-opal',
+  :branch => 'ubuntu16'
 mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
   :branch => 'ubuntu16'
