@@ -8,6 +8,15 @@
 Vagrant.configure(2) do |config|
   # See https://docs.vagrantup.com. for vagrant config info
 
+  # Support status
+  system("echo '**************************************************************'")
+  system("echo '*                                                            *'")
+  system("echo '*                       Unmaintained                         *'")
+  system("echo '*                                                            *'")
+  system("echo '*  This Vagrantfile, and related files, are not maintained.  *'")
+  system("echo '*                                                            *'")
+  system("echo '**************************************************************'")
+
   config.vm.box = "gce"
   config.vm.box_url = 'https://github.com/mitchellh/vagrant-google/raw/master/google.box'
 
