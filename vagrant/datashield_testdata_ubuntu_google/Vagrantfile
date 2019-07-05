@@ -14,37 +14,28 @@
 Vagrant.configure(2) do |config|
   # See https://docs.vagrantup.com. for vagrant config info
 
-  # Support status
-  system("echo '**************************************************************'")
-  system("echo '*                                                            *'")
-  system("echo '*                       Unmaintained                         *'")
-  system("echo '*                                                            *'")
-  system("echo '*  This Vagrantfile, and related files, are not maintained.  *'")
-  system("echo '*                                                            *'")
-  system("echo '**************************************************************'")
+  config.vm.box = "google/gce"
 
-  config.vm.box = "gce"
-  config.vm.box_url = 'https://github.com/mitchellh/vagrant-google/raw/master/google.box'
-
+  #
   # Setup Google:
   #
   config.vm.provider :google do |google, override|
+    google.google_project_id        = "YOUR_GOOGLE_CLOUD_PROJECT_ID"
+    google.google_json_key_location = "/path/to/your/private-key.json"
+
     # Set as required
     override.ssh.username         = "testuser"
     override.ssh.private_key_path = "/home/testuser/.ssh/id_rsa"
 
     # Make sure to set this to trigger the zone_config
-    google.zone = "europe-west1-d" # Zone where the computer is going to be (keep all computers in the same zoon)
+    google.zone = "europe-west2-a" # Zone where the computer is going to be (keep all computers in the same zoon)
 
-    google.zone_config "europe-west1-d" do |zone1f|
-      zone1f.name = "datashield-testdata-ubuntu" # Name of the VM to spin up
-      zone1f.image = "ubuntu-1604-xenial-v20180814" # Image of the VM to spin up
-      zone1f.machine_type = "n1-standard-1" # Google cloud compute machine type
-      zone1f.zone = "europe-west1-d" # Keep this the same as zone
-      zone1f.disk_size = 10 # Size of the disk (GB)
-      zone1f.network = "server-external" # Which network for the VM to use
-      zone1f.subnetwork = "server-external" # Which network for the VM to use
-#      zone1f.network = "default" # Which network for the VM to use
+    google.zone_config "europe-west2-a" do |zone1f|
+      zone1f.name         = "datashield-testdata-ubuntu" # Name of the VM to spin up
+      zone1f.image_family = "ubuntu-1604-lts"            # Image of the VM to spin up
+      zone1f.machine_type = "n1-standard-1"              # Google cloud compute machine type
+      zone1f.zone         = "europe-west2-a"             # Keep this the same as zone
+      zone1f.disk_size    = 10                           # Size of the disk (GB)
     end
   end
 
