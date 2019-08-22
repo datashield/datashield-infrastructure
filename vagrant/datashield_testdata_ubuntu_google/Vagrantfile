@@ -4,12 +4,6 @@
 # Vagrant configuration file for a Ubuntu VM running a datashield server as provisioned by the datashield_testdata
 # puppet environment, the VM will be run on the Google computer cloud.
 #
-# You can specify the Google Cloud Engine setting by setting these authentication shell variables:
-#
-# export GOOGLE_CLIENT_EMAIL="your-google_service_account_email@developer.gserviceaccount.com"
-# export GOOGLE_PROJECT_ID="your-google-cloud-project-id"
-# export GOOGLE_JSON_KEY_LOCATION="/full/path/to/your/private-key.json"
-#
 # vagrant up --provider=google
 #
 
@@ -22,9 +16,10 @@ Vagrant.configure(2) do |config|
   #
   config.vm.provider :google do |google, override|
     # Set as required
-    override.ssh.username         = "username"
-    override.ssh.private_key_path = "/home/username/.ssh/id_rsa"
-    google.google_json_key_location = "/home/username/datashield-d2k.json"
+    # override.ssh.username           = "username"
+    # override.ssh.private_key_path   = "/home/username/.ssh/id_rsa"
+    # google.google_project_id        = "datashield-d2k"
+    # google.google_json_key_location = "/home/username/datashield-d2k.json"
 
     # Make sure to set this to trigger the zone_config
     google.zone = "europe-west2-a" # Zone where the computer is going to be (keep all computers in the same zoon)
@@ -35,8 +30,8 @@ Vagrant.configure(2) do |config|
       zone1f.machine_type = "n1-standard-1"              # Google cloud compute machine type
       zone1f.zone         = "europe-west2-a"             # Keep this the same as zone
       zone1f.disk_size    = 10                           # Size of the disk (GB)
-      zone1f.network      = "server-external"            # Which network for the VM to use
-      zone1f.subnetwork   = "server-external"            # Which network for the VM to use
+      zone1f.network      = "server-internal"            # Which network for the VM to use
+      zone1f.subnetwork   = "server-internal"            # Which subnetwork for the VM to use
     end
   end
 
