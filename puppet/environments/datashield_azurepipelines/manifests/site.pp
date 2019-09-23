@@ -11,4 +11,13 @@ class { ::datashield:
   mongodb        => true,         # Install mongodb server
   remote_mongodb => false,        # There is not a remote mongodb server
   remote_mysql   => false,        # There is not a remote mysql server
+
+  dsbase_githubusername      => 'datashield',
+  dsbase_ref                 => 'v5.1-dev',
+  dsstats_githubusername     => 'datashield',
+  dsstats_ref                => '',
+  dsgraphics_githubusername  => 'datashield',
+  dsgraphics_ref             => '',
+  dsmodelling_githubusername => 'datashield',
+  dsmodelling_ref            => ''
 }
