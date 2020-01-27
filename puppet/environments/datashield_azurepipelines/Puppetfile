@@ -10,14 +10,14 @@ mod 'puppetlabs/firewall', '1.14.0'
 mod 'heini-wait_for', '2.0.1'
 
 mod 'opal',
-  :git => 'https://github.com/datashield/puppet-opal',
-  :branch => 'ubuntu16'
+  :git => 'https://github.com/StuartWheater/puppet-opal',
+  :branch => 'v6.0-pre'
 mod 'r',
-  :git => 'https://github.com/datashield/puppet-r',
-  :branch => 'ubuntu16'
+  :git => 'https://github.com/StuartWheater/puppet-r',
+  :branch => 'v6.0-pre'
 mod 'datashield',
-  :git => 'https://github.com/datashield/puppet-datashield',
-  :branch => 'ubuntu16'
+  :git => 'https://github.com/StuartWheater/puppet-datashield',
+  :branch => 'v6.0-pre'
 mod 'mongodb',
-  :git => 'https://github.com/datashield/puppet-mongodb',
-  :branch => 'ubuntu16'
+  :git => 'https://github.com/StuartWheater/puppet-mongodb',
+  :branch => 'v6.0-pre'
