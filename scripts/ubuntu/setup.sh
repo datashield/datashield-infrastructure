@@ -10,6 +10,8 @@ DISTRIB_CODENAME=`lsb_release -sc`
 echo "Running Puppet setup script for Ubuntu"
 echo "Ubuntu codename: $DISTRIB_CODENAME"
 
+sudo update-locale LANG="en_GB.UTF-8"
+
 # Install Puppet
 if [ ! -d "$PUPPET_DIR" ]; then
     echo "Installing Puppet"
