@@ -17,7 +17,7 @@ mod 'r',
   :branch => '6.0'
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield',
-  :branch => '6.0'
+  :branch => '6.0.1'
 mod 'mongodb',
   :git => 'https://github.com/datashield/puppet-mongodb',
   :branch => '6.0'
