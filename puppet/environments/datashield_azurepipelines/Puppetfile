@@ -11,7 +11,7 @@ mod 'heini-wait_for', '2.0.1'
 
 mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
-  :branch => '6.0'
+  :branch => '6.0.1'
 mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
   :branch => '6.0'
