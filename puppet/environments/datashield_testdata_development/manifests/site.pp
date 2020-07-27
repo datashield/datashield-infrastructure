@@ -30,13 +30,9 @@ class { ::datashield:
   opal_release               => 'dsunstable',           # The release version of Opal to install*
 
   dsbase_githubusername      => 'datashield',           # User account associated with the 'dsBase' package in github.
-  dsbase_ref                 => 'master',               # Branch name associated with the 'dsBase' package in github.
-  dsstats_githubusername     => 'datashield',           # User account associated with the 'dsStats' package in github.
-  dsstats_ref                => 'master',               # Branch name associated with the 'dsStats' package in github.
-  dsgraphics_githubusername  => 'datashield',           # User account associated with the 'dsGraphics' package in github.
-  dsgraphics_ref             => 'master',               # Branch name associated with the 'dsGraphics' package in github.
-  dsmodelling_githubusername => 'datashield',           # User account associated with the 'dsModelling' package in github.
-  dsmodelling_ref            => 'master'                # Branch name associated with the 'dsModelling' package in github.
+  dsbase_ref                 => 'v6.1-dev',             # Branch name associated with the 'dsBase' package in github.
+  dsdanger_githubusername    => 'datashield',           # User account associated with the 'dsDanger' package in github.
+  dsdanger_ref               => ''                      # Branch name associated with the 'dsDanger' package in github.
 }
 
 # * NOTE: 'dsunstable' is the name of the development version of Opal with
