@@ -11,13 +11,13 @@ mod 'heini/wait_for', '2.2.0'
 
 mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
-  :branch => '6.1'
+  :branch => 'v6.1.1-dev'
 mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
-  :branch => '6.1'
+  :branch => 'v6.1.1-dev'
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield',
-  :branch => '6.1'
+  :branch => 'v6.1.1-dev'
 mod 'mongodb',
   :git => 'https://github.com/datashield/puppet-mongodb',
-  :branch => '6.1'
+  :branch => 'v6.1.1-dev'
