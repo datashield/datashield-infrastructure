@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.56.100"
+  config.vm.network "private_network", ip: "192.168.56.150"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
     #   # Display the VirtualBox GUI when booting the machine
     #   vb.gui = true
     # Customize the amount of memory on the VM:
-    vb.memory = "4096"
+    vb.memory = "6144"
   end
   #
   # Provisioning of the VM. Run the setup script. Then run r10k to install puppet modules. Then run the puppet
@@ -55,4 +55,34 @@ Vagrant.configure(2) do |config|
     puppet.environment_path = "../../puppet/environments"
     puppet.environment = "datashield_testdata"
   end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo locale-gen en_GB.UTF-8
+    sudo update-locale LANG="en_GB.UTF-8"
+
+    sudo apt-get update
+    sudo apt-get upgrade -y
+
+    sudo iptables -I INPUT 6 -p tcp --dport 8787 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+    iptables-save | sudo tee /etc/iptables/rules.v4
+
+    sudo apt-get install -y --allow-change-held-packages libcairo2-dev
+    sudo apt-get install -y gdebi-core
+    sudo curl https://download2.rstudio.org/server/xenial/amd64/rstudio-server-1.3.1093-amd64.deb --output /tmp/rstudio-server-1.3.1093-amd64.deb
+    sudo gdebi -n /tmp/rstudio-server-1.3.1093-amd64.deb
+    sudo rm -f /tmp/rstudio-server-1.3.1093-amd64.deb
+
+    echo 'auth-timeout-minutes=0' | sudo tee -a /etc/rstudio/rserver.conf
+
+    sudo apt-get install -y libgit2-dev libssl-dev libssh2-1-dev libxml2-dev libcurl4-gnutls-dev libfontconfig1-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev libgsl-dev
+    sudo -i -u vagrant mkdir -p ~vagrant/R/x86_64-pc-linux-gnu-library/4.0
+    sudo -i -u vagrant R -q -e "install.packages(c('devtools','covr'), dependencies=TRUE, repos='https://cloud.r-project.org')"
+    sudo -i -u vagrant R -q -e "install.packages(c('fields','metafor','ggplot2','gridExtra','data.table'), dependencies=TRUE, repos='https://cloud.r-project.org')"
+    sudo -i -u vagrant R -q -e "install.packages(c('DSI','DSOpal','DSLite'), dependencies=TRUE, repos='https://cloud.r-project.org')"
+    sudo -i -u vagrant R -q -e "install.packages(c('DescTools','e1071'), dependencies=TRUE, repos='https://cloud.r-project.org')"
+    sudo -i -u vagrant R -q -e "install.packages(c('RANN','reshape2'), dependencies=TRUE, repos='https://cloud.r-project.org')"
+
+    sudo -i -u vagrant git clone https://github.com/datashield/dsBase.git -b 6.1
+    sudo -i -u vagrant git clone https://github.com/datashield/dsBaseClient.git -b 6.1
+  SHELL
 end

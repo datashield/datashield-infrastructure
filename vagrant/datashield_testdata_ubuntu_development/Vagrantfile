@@ -7,8 +7,17 @@
 Vagrant.configure(2) do |config|
   # See https://docs.vagrantup.com. for vagrant config info
 
+  # Support status
+  system("echo '**************************************************************'")
+  system("echo '*                                                            *'")
+  system("echo '*                       Unmaintained                         *'")
+  system("echo '*                                                            *'")
+  system("echo '*  This Vagrantfile, and related files, are not maintained.  *'")
+  system("echo '*                                                            *'")
+  system("echo '**************************************************************'")
+
   # Puppetlabs blank ubuntu box
-  config.vm.box = "puppetlabs/ubuntu-14.04-64-nocm"
+  config.vm.box = "puppetlabs/ubuntu-16.04-64-nocm"
 
   # Use cache if the plugin vagrant-cachier has been installed
   if Vagrant.has_plugin?("vagrant-cachier")
@@ -40,7 +49,7 @@ Vagrant.configure(2) do |config|
     #   # Display the VirtualBox GUI when booting the machine
     #   vb.gui = true
     # Customize the amount of memory on the VM:
-    vb.memory = "2048"
+    vb.memory = "4096"
   end
   #
   # Provisioning of the VM. Run the setup script. Then run r10k to install puppet modules. Then run the puppet

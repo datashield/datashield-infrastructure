@@ -14,21 +14,25 @@ case $::operatingsystem {
 }
 
 class { ::datashield:
-  test_data            => true,                   # Install the test data
-  firewall             => true,                   # Install firewall on server and open ports
-  mysql                => true,                   # Install mysql server
-  mysql_root_password  => 'rootpass',             # Root password for MySQL install
-  mysql_user           => 'opaluser',             # MySQL user for Opal databases
-  mysql_pass           => 'opalpass',             # MySQL user passport for Opal databases
-  mongodb              => true,                   # Install mongodb server
-  mongodb_user         => 'opaluser',             # Username of root MongoDB user for MongoDB install
-  mongodb_pass         => 'opalpass',             # Password of root MongoDB user for MongoDB install
-  remote_mongodb       => false,                  # No remote mongodb servers
-  remote_mysql         => false,                  # No remote mysql servers
-  opal_password_hash   => $opal_password_hash,    # Change Opal admin password using this hash
-  opal_password        => 'datashield_test&',     # This is the Opal admin password for Opal management
-  opal_release         => 'dsunstable',           # The release version of Opal to install*
-  r_server_package_ref => 'master'                # Reference (branch) to use for server side R packages <-------- Change this line when you know the developement branch name for r packages
+  test_data                  => true,                   # Install the test data
+  firewall                   => true,                   # Install firewall on server and open ports
+  mysql                      => true,                   # Install mysql server
+  mysql_root_password        => 'rootpass',             # Root password for MySQL install
+  mysql_user                 => 'opaluser',             # MySQL user for Opal databases
+  mysql_pass                 => 'opalpass',             # MySQL user passport for Opal databases
+  mongodb                    => true,                   # Install mongodb server
+  mongodb_user               => 'opaluser',             # Username of root MongoDB user for MongoDB install
+  mongodb_pass               => 'opalpass',             # Password of root MongoDB user for MongoDB install
+  remote_mongodb             => false,                  # No remote mongodb servers
+  remote_mysql               => false,                  # No remote mysql servers
+  opal_password_hash         => $opal_password_hash,    # Change Opal admin password using this hash
+  opal_password              => 'datashield_test&',     # This is the Opal admin password for Opal management
+  opal_release               => 'dsunstable',           # The release version of Opal to install*
+
+  dsbase_githubusername      => 'datashield',           # User account associated with the 'dsBase' package in github.
+  dsbase_ref                 => '6.1',                  # Branch name associated with the 'dsBase' package in github.
+  dsdanger_githubusername    => 'datashield',           # User account associated with the 'dsDanger' package in github.
+  dsdanger_ref               => ''                      # Branch name associated with the 'dsDanger' package in github.
 }
 
 # * NOTE: 'dsunstable' is the name of the development version of Opal with
