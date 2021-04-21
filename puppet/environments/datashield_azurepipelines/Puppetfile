@@ -1,9 +1,9 @@
 # Modules from the forge
 mod 'puppetlabs/stdlib', '6.4.0'
 mod 'puppetlabs/translate', '2.2.0'
-mod 'puppet-staging', '3.2.0'
 mod 'puppetlabs/apt', '7.5.0'
 mod 'stahnma/epel', '2.0.0'
+mod 'puppet-staging', '3.2.0'
 mod 'puppetlabs/mysql', '10.7.0'
 mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '2.5.0'
@@ -11,13 +11,13 @@ mod 'heini/wait_for', '2.2.0'
 
 mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'mongodb',
   :git => 'https://github.com/datashield/puppet-mongodb',
-  :branch => '6.1'
+  :branch => '6.1.1'

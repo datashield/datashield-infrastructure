@@ -11,13 +11,13 @@ mod 'maestrodev/wget', '1.7.3'
 
 mod 'opal',
   :git => 'https://github.com/datashield/puppet-opal',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield',
-  :branch => '6.1'
+  :branch => '6.1.1'
 mod 'mongodb',
   :git => 'https://github.com/datashield/puppet-mongodb',
-  :branch => '6.1'
+  :branch => '6.1.1'
