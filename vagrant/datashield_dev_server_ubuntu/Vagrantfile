@@ -82,7 +82,7 @@ Vagrant.configure(2) do |config|
     sudo -i -u vagrant R -q -e "install.packages(c('DescTools','e1071'), dependencies=TRUE, repos='https://cloud.r-project.org')"
     sudo -i -u vagrant R -q -e "install.packages(c('RANN','reshape2'), dependencies=TRUE, repos='https://cloud.r-project.org')"
 
-    sudo -i -u vagrant git clone https://github.com/datashield/dsBase.git -b v6.1.1-dev
-    sudo -i -u vagrant git clone https://github.com/datashield/dsBaseClient.git -b v6.1.1-dev
+    sudo -i -u vagrant git clone https://github.com/datashield/dsBase.git -b master
+    sudo -i -u vagrant git clone https://github.com/datashield/dsBaseClient.git -b master
   SHELL
 end
