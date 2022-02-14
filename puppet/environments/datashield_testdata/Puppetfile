@@ -1,7 +1,7 @@
 # Modules from the forge
 mod 'puppetlabs/stdlib', '6.4.0'
-mod 'puppetlabs/apt', '7.5.0'
-mod 'stahnma/epel', '2.0.0'
+mod 'puppetlabs/apt', '8.3.0'
+mod 'puppet/epel', '4.0.0'
 mod 'puppet-staging', '3.2.0'
 mod 'puppetlabs/mysql', '10.7.0'
 mod 'adrien/alternatives', '0.3.0'
