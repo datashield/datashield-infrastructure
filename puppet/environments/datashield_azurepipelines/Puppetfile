@@ -2,9 +2,9 @@
 mod 'puppetlabs/stdlib', '6.4.0'
 mod 'puppetlabs/translate', '2.2.0'
 mod 'puppetlabs/apt', '8.3.0'
-mod 'stahnma/epel', '2.0.0'
+mod 'puppet/epel', '4.0.0'
 mod 'puppet-staging', '3.2.0'
-mod 'puppetlabs/mysql', '10.7.0'
+mod 'puppetlabs/mysql', '12.0.1'
 mod 'adrien/alternatives', '0.3.0'
 mod 'puppetlabs/firewall', '2.5.0'
 mod 'heini/wait_for', '2.2.0'
@@ -16,7 +16,7 @@ mod 'r',
   :git => 'https://github.com/datashield/puppet-r',
   :branch => 'v6.2-dev'
 mod 'datashield',
-  :git => 'https://github.com/StuartWheater/puppet-datashield',
+  :git => 'https://github.com/datashield/puppet-datashield',
   :branch => 'v6.2-dev'
 mod 'mongodb',
   :git => 'https://github.com/datashield/puppet-mongodb',
