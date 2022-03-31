@@ -10,6 +10,7 @@ DISTRIB_CODENAME=`lsb_release -sc`
 echo "Running Puppet setup script for Ubuntu"
 echo "Ubuntu codename: $DISTRIB_CODENAME"
 
+sudo apt-get update -y -q
 sudo apt-get install language-pack-en-base language-pack-en -y -q
 sudo update-locale LANG="en_GB.UTF-8"
 
@@ -20,9 +21,9 @@ if [ ! -d "$PUPPET_DIR" ]; then
     sudo dpkg -i puppet7-release-${DISTRIB_CODENAME}.deb
     sudo rm -f puppet7-release-${DISTRIB_CODENAME}.deb
     sudo apt-get install -f
-    sudo apt-get update
+    sudo apt-get update -y
     sudo apt-get install puppet-agent -y
-    sudo apt-get upgrade
+    sudo apt-get upgrade -y
 fi
 # Install GIT
 sudo apt-get install git -y
