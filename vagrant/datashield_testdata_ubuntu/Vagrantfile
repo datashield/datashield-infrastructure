@@ -13,6 +13,8 @@ Vagrant.configure(2) do |config|
   # Puppetlabs blank ubuntu box
   config.vm.box = "ubuntu/focal64"
 
+  # config.vm.disk :disk, name: "tutorial_root", size: "20GB"
+
   # Use cache if the plugin vagrant-cachier has been installed
   if Vagrant.has_plugin?("vagrant-cachier")
     config.cache.scope = :box
@@ -26,6 +28,7 @@ Vagrant.configure(2) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   config.vm.network "private_network", ip: "192.168.56.100"
+  # config.vm.network "private_network", ip: "192.168.56.101"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
