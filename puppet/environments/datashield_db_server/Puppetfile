@@ -1,11 +1,11 @@
 # Modules from the forge
-mod 'puppetlabs/stdlib', '4.9.0'
-mod 'puppetlabs/apt', '2.2.0'
-mod 'stahnma/epel', '1.1.1'
-mod 'nanliu/staging', '1.0.3'
-mod 'puppetlabs/mysql', '3.6.1'
+mod 'puppetlabs/stdlib', '8.1.0'
+mod 'puppetlabs/apt', '8.3.0'
+mod 'puppet/epel', '4.1.0'
+mod 'puppet-staging', '3.2.0'
+mod 'puppetlabs/mysql', '12.0.1'
 mod 'adrien/alternatives', '0.3.0'
-mod 'puppetlabs/firewall', '1.7.2'
+mod 'puppetlabs/firewall', '3.4.0'
 
 mod 'datashield',
   :git => 'https://github.com/datashield/puppet-datashield'

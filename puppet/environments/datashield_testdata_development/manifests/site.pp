@@ -30,7 +30,7 @@ class { ::datashield:
   opal_release               => 'dsunstable',           # The release version of Opal to install*
 
   dsbase_githubusername      => 'datashield',           # User account associated with the 'dsBase' package in github.
-  dsbase_ref                 => 'v6.2-dev',             # Branch name associated with the 'dsBase' package in github.
+  dsbase_ref                 => '6.2',                  # Branch name associated with the 'dsBase' package in github.
   dsdanger_githubusername    => 'datashield',           # User account associated with the 'dsDanger' package in github.
   dsdanger_ref               => ''                      # Branch name associated with the 'dsDanger' package in github.
 }
