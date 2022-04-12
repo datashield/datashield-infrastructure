@@ -30,7 +30,7 @@ class { ::datashield:
   opal_release         => 'stable',               # The release version of Opal to install.
 
   dsbase_githubusername      => 'datashield',
-  dsbase_ref                 => '6.2',
+  dsbase_ref                 => 'master',
   dsdanger_githubusername    => 'datashield',
   dsdanger_ref               => ''
 }
